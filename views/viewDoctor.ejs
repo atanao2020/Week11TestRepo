@@ -1,0 +1,55 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Health Record App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+      body{
+          background-color:lightpink;
+          text-align:center;
+          color:black;
+      }
+      h1{
+          color:green;
+      }
+      table{
+          padding:5px;
+          width: 800;
+          background-color: gray;
+      }
+</style>
+</head>
+<body>
+    <h1> Record for Doctors</h1>
+    <center><table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% doctors.forEach(function(doctor) { %>
+                <tr>
+                    <td><%= doctor.name%></td>
+                    <td><%= doctor.email%></td>
+                    <td><%= doctor.password%></td>
+                    <td><form action="/delete-doctor-record<%=doctor._id%>/?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                         </form>
+                    </td>
+                    <td><button><a href="/update-doctor-record<%=doctor._id%>/edit">Edit</a> </button></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table></center><br><br>
+    <div>
+        <button><a href="/"> Log Out </a></button>
+    </div>
+</body>
+</html>

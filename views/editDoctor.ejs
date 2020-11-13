@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Health Record App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+      body{
+          background-color:lightpink;
+          text-align:center;
+      }
+      label{
+          display: block;
+          width: 120px;
+          float: left;
+      }
+      form{
+          display:block;
+          margin:auto;
+          display:table;
+          background-color:lightblue;
+      }
+</style>
+</head>
+<body>
+    <h1>Edit <%=doctor.name%> Details</h1><br>
+    <form action="/update-doctor-record<%=doctor._id%>/edit?_method=PUT" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="doctor[name]" value="<%=doctor.name%>"><br><br>
+        <label for="email">Email</label>
+        <input type="Email" id="email" name="doctor[email]" value="<%=doctor.email%>"><br><br>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="doctor[password]" value="<%=doctor.password%>"><br><br>
+        <input type="submit">
+    </form><br><br>
+    <div>
+       <button><a href="/view-doctor-info">Exit</a></button>
+    </div> 
+</body>
+</html>

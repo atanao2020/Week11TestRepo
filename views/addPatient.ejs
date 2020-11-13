@@ -1,0 +1,68 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Health Record App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+      body{
+          background-color:lightpink;
+          text-align:center;
+          color:black;
+      }
+      h1{
+          color:green;
+      }
+      table{
+          padding:5px;
+          width: 800;
+          background-color: gray;
+      }
+      label{
+            font-weight: bold;
+            display: block;
+            width: 120px;
+            float: left;
+        }
+        form{
+            background-color: lightblue;
+            width:500px;
+            text-align:center;
+            border:solid;
+            margin:auto;
+            padding:10px;
+            display:table;
+            }
+</style>
+</head>
+<body>
+    <h1>Welcome to Patient Registration</h1><br><br>
+
+     <form action="/add-patient-details" method="POST">
+        <p> Register </p>
+        <label for="name">Name</label>
+        <input type="Text" id="name" name="name" required><br><br>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" required><br><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required><br><br>
+        <label for="password">Password</label>
+        <input type="Password" id="password" name="password" required><br><br>
+        <label for="doctor">Select Doctor</label>
+        <select data-style="btn-info" Type="text" name="doctor" id="doctor">
+        <optgroup label="Select Doctor">
+            <% doctors.forEach(function(doctor) { %>
+            <option>
+                <%= doctor.name%> 
+            </option>
+            <% }); %>
+        </optgroup>
+        </select><br><br>
+        <button>Submit</button>
+     </form><br><br>
+     <div>
+        <p> <a href="/">Home Page</a></p>
+    </div>
+</body>
+</html>
